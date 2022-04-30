@@ -1,7 +1,7 @@
-#include "Renderer.hpp"
+#include <rain/rendering/Renderer.hpp>
 
 
-Renderer::Renderer(SDL_Window* window, int screenWidth, int screenHeight)
+Renderer::Renderer(SDL_Window* window, const int screenWidth, const int screenHeight)
 {
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
@@ -18,20 +18,20 @@ Renderer::~Renderer(void)
 	SDL_DestroyRenderer(renderer);
 }
 
-void Renderer::AddToUIQueue(UIRenderable obj)
+void Renderer::AddToUIQueue(const UIRenderable obj)
 {
 }
 
-void Renderer::AddToGraphicsQueue(GraphicsRenderable graphics)
+void Renderer::AddToGraphicsQueue(const GraphicsRenderable graphics)
 {
 }
 
-UIRenderable Renderer::RemoveFromUIQueue(int id)
+UIRenderable Renderer::RemoveFromUIQueue(const int id)
 {
 	return UIRenderable();
 }
 
-GraphicsRenderable Renderer::RemoveFromGraphicsQueue(int id)
+GraphicsRenderable Renderer::RemoveFromGraphicsQueue(const int id)
 {
 	return GraphicsRenderable();
 }

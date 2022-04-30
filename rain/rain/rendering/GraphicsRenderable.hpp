@@ -1,5 +1,6 @@
 #pragma once
-#include "Renderable.hpp"
+#include <rain/rendering/Renderable.hpp>
+
 struct GraphicsRenderable : public Renderable
 {
 	// shaders?? 

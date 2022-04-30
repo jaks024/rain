@@ -72,20 +72,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>F:\vslib\SDL2_image-2.0.5\include;F:\vslib\SDL2_ttf-2.0.18\include;F:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vslib\SDL2-2.0.20\lib\x64;F:\vslib\SDL2_ttf-2.0.18\lib\x64;F:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>F:\vslib\SDL2_image-2.0.5\include;F:\vslib\SDL2_ttf-2.0.18\include;F:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vslib\SDL2-2.0.20\lib\x64;F:\vslib\SDL2_ttf-2.0.18\lib\x64;F:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <PublicIncludeDirectories>$(PublicIncludeDirectories)</PublicIncludeDirectories>
-    <SourcePath>$(SourcePath)</SourcePath>
+    <PublicIncludeDirectories>
+    </PublicIncludeDirectories>
+    <SourcePath>$(VC_SourcePath);</SourcePath>
     <AllProjectIncludesArePublic>false</AllProjectIncludesArePublic>
     <IncludePath>F:\vslib\SDL2_image-2.0.5\include;F:\vslib\SDL2_ttf-2.0.18\include;F:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\vslib\SDL2_image-2.0.5\lib\x64;F:\vslib\SDL2_ttf-2.0.18\lib\x64;F:\vslib\SDL2-2.0.20\lib\x64;$(LibraryPath)</LibraryPath>
+    <LibraryPath>F:\vslib\SDL2-2.0.20\lib\x64;F:\vslib\SDL2_ttf-2.0.18\lib\x64;F:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>F:\vslib\SDL2_image-2.0.5\include;F:\vslib\SDL2_ttf-2.0.18\include;F:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vslib\SDL2-2.0.20\lib\x64;F:\vslib\SDL2_ttf-2.0.18\lib\x64;F:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,10 +100,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>F:\GitHub\rain\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -107,12 +117,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>F:\GitHub\rain\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,6 +134,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>F:\GitHub\rain\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -136,27 +151,40 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>F:\GitHub\rain\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="rain\entities\EntityComponentEditor.cpp" />
+    <ClCompile Include="rain\entities\EntityManager.cpp" />
+    <ClCompile Include="rain\entities\Entity.cpp" />
     <ClCompile Include="rain\Game.cpp" />
     <ClCompile Include="rain\rendering\Renderer.cpp" />
     <ClCompile Include="tests\rain.cpp" />
     <ClCompile Include="rain\utilities\Vector2.cpp" />
+    <ClCompile Include="tests\TestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rain\entities\EntityComponentEditor.hpp" />
+    <ClInclude Include="rain\entities\EntityManager.hpp" />
+    <ClInclude Include="rain\components\ComponentType.hpp" />
+    <ClInclude Include="rain\components\Component.hpp" />
+    <ClInclude Include="rain\entities\Entity.hpp" />
     <ClInclude Include="rain\rendering\GraphicsRenderable.hpp" />
     <ClInclude Include="rain\Game.hpp" />
     <ClInclude Include="rain\rendering\Renderer.hpp" />
     <ClInclude Include="rain\rendering\Renderable.hpp" />
     <ClInclude Include="rain\rendering\UIRenderable.hpp" />
-    <ClInclude Include="rain\utilities\Vector2.h" />
+    <ClInclude Include="rain\utilities\Vector2.hpp" />
+    <ClInclude Include="tests\TestGame.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

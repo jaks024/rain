@@ -1,5 +1,5 @@
-#include "Game.hpp"
 #include <iostream>
+#include <rain/Game.hpp>
 
 Game::Game(string gameName, int framerate, int screenWidth, int screenHeight)
 {
@@ -12,8 +12,6 @@ Game::Game(string gameName, int framerate, int screenWidth, int screenHeight)
 Game::~Game(void)
 {
 	SDL_DestroyWindow(window);
-
-	delete(renderer);
 }
 
 bool Game::EngineInitialize(void)
@@ -33,36 +31,68 @@ bool Game::EngineInitialize(void)
 		return false;
 	}
 
-	renderer = new Renderer(window, screenWidth, screenHeight);
+	renderer = std::make_unique<Renderer>(window, screenWidth, screenHeight);
 }
 
 void Game::EngineUpdate(void)
 {
+	// TEMPORARY (TO BE MOVED TO INPUT MANAGER)
+	SDL_Event event;
+
+	while (SDL_PollEvent(&event))
+	{
+		switch (event.type)
+		{
+		case SDL_QUIT:
+			OnQuit();
+			break;
+		default:
+			break;
+		}
+	}
+
 }
 
 void Game::EngineRender(void)
 {
+	renderer->Render();
 }
 
 void Game::EngineQuit(void)
 {
 }
 
+void Game::OnQuit(void)
+{
+	EngineQuit();
+	Quit();
+	hasQuit = true;
+}
+
 
 void Game::ToggleEditorOverlay(bool state)
 {
+	editorEnabled = state;
+	// turn on editor 
 }
 
 void Game::Start(void)
 {
+	EngineInitialize();
+	Initialize();
 }
 
 void Game::Play(void)
 {
+	EngineUpdate();
+	Update();
+	EngineRender();
+	Render();
 
 	SDL_Delay(framerate);
 }
 
-void Game::Exit(void)
+void Game::Close(void)
 {
+	SDL_Quit();
 }

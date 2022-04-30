@@ -1,8 +1,8 @@
 #pragma once
 #include <SDL.h>
 #include <queue>
-#include "UIRenderable.hpp"
-#include "GraphicsRenderable.hpp"
+#include <rain/rendering/UIRenderable.hpp>
+#include <rain/rendering/GraphicsRenderable.hpp>
 using std::priority_queue;
 
 class Renderer

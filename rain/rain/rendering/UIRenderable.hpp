@@ -1,5 +1,5 @@
 #pragma once
-#include "Renderable.hpp"
+#include <rain/rendering/Renderable.hpp>
 #include <SDL.h>
 #include <vector>
 using std::vector;

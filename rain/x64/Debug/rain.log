@@ -1,0 +1,3 @@
+﻿  Game.cpp
+F:\GitHub\rain\rain\rain\Game.cpp(35): warning C4715: 'Game::EngineInitialize': not all control paths return a value
+  rain.vcxproj -> F:\GitHub\rain\rain\x64\Debug\rain.exe

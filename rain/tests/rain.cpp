@@ -2,10 +2,19 @@
 //
 
 #include <iostream>
-
-int main()
+#include <tests/TestGame.hpp>
+int main(int argc, char* args[])
 {
-    std::cout << "Hello World!\n";
+	TestGame* testGame = new TestGame("test game", 60, 1280, 720);
+	testGame->Start();
+	while (!testGame->hasQuit) {
+		testGame->Play();
+	}
+	testGame->Close();
+
+	delete(testGame);
+
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
