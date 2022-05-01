@@ -1,8 +1,10 @@
 #pragma once
 #include <vector>
 #include <functional>
+#include <memory>
 using std::vector;
 using std::function;
+using std::shared_ptr;
 #include <rain/events/EventArgs.hpp>
 
 template<class T>

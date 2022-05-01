@@ -1,7 +1,7 @@
 #pragma once
 #include <rain/utilities/Vector2.hpp>
 #include <rain/components/Component.hpp>
-#include <vector>
+#include <unordered_set>
 #include <memory>
 
 struct Entity
@@ -10,11 +10,13 @@ struct Entity
 	Vector2 position;
 	Vector2 rotation;
 	Vector2 scale;
-	std::vector<std::shared_ptr<Component>> components;
+	std::unordered_set<Component, Component::Hash> components;
 
 	Entity(int id, Vector2 position, Vector2 rotation, Vector2 scale);
-	virtual ~Entity(void);
+	virtual ~Entity(void) = default;
 
+	void AddComponent(Component comp);
+	Component RemoveComponent(ComponentType type);
 	std::string ToString(void);
 };
 

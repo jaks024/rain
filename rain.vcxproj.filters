@@ -83,5 +83,8 @@
     <ClInclude Include="rain\events\EventArgs.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rain\events\EntityComponentEditorEventArgs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

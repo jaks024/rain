@@ -41,8 +41,7 @@ public:
 int main(int argc, char* args[])
 {
 	EventHandler<EventArgs> myEvent;
-	EventArgs arg;
-
+	EventArgs arg = EventArgs();
 
 	TestEventClass tec1;
 	tec1.Subscribe1(&myEvent);

@@ -6,5 +6,22 @@ struct Component
 {
 	int componentSourceId;
 	ComponentType type;
+
+	Component(void) = default;
+	Component(ComponentType type) : componentSourceId{ 0 },  type { type } {}
+	virtual ~Component(void) = default;
+
+	bool operator==(const Component& other) const 
+	{
+		return type == other.type;
+	}
+
+	struct Hash
+	{
+		size_t operator()(const Component& comp) const
+		{
+			return std::hash<int>()(static_cast<int>(comp.type));
+		}
+	};
 };
 
