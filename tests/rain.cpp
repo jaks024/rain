@@ -3,8 +3,78 @@
 
 #include <iostream>
 #include <tests/TestGame.hpp>
+#include <rain/events/EventArgs.hpp>
+#include <rain/events/EventHandler.hpp>
+
+
+class TestFuncClass
+{
+public:
+	void TestFunc1(EventArgs args) {
+		printf(("1 called test func: " + args.message).c_str());
+	}
+	void TestFunc2(EventArgs args) {
+		printf(("2 called test func: " + args.message).c_str());
+	}
+};
+
+class TestEventClass {
+public:
+
+	TestFuncClass tfc;
+	void Subscribe1(EventHandler<EventArgs>* myEvent) {
+		(*myEvent) += std::bind(&TestFuncClass::TestFunc1, tfc, std::placeholders::_1);;
+	}
+	void Subscribe2(EventHandler<EventArgs>* myEvent) {
+		(*myEvent) += std::bind(&TestFuncClass::TestFunc2, tfc, std::placeholders::_1);
+	}
+
+	void UnSubcribe1(EventHandler<EventArgs>* myEvent) {
+		(*myEvent) -= std::bind(&TestFuncClass::TestFunc1, tfc, std::placeholders::_1);
+	}
+	void UnSubcribe2(EventHandler<EventArgs>* myEvent) {
+		(*myEvent) -= std::bind(&TestFuncClass::TestFunc2, tfc, std::placeholders::_1);
+	}
+};
+
+
 int main(int argc, char* args[])
 {
+	EventHandler<EventArgs> myEvent;
+	EventArgs arg;
+
+
+	TestEventClass tec1;
+	tec1.Subscribe1(&myEvent);
+	TestEventClass tec2;
+	tec2.Subscribe2(&myEvent);
+
+	arg.message = "3\n";
+	myEvent.Invoke(arg);
+
+	tec1.UnSubcribe1(&myEvent);
+
+	arg.message = "4\n";
+	myEvent.Invoke(arg);
+
+	tec2.UnSubcribe2(&myEvent);
+
+	arg.message = "5\n";
+	myEvent.Invoke(arg);
+
+	tec1.Subscribe1(&myEvent);
+
+	arg.message = "6\n";
+	myEvent.Invoke(arg);
+
+	tec1.Subscribe2(&myEvent);
+
+	arg.message = "7\n";
+	myEvent.Invoke(arg);
+
+	return 0;
+
+
 	TestGame* testGame = new TestGame("test game", 60, 1280, 720);
 	testGame->Start();
 	while (!testGame->hasQuit) {

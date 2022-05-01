@@ -173,6 +173,8 @@
     <ClCompile Include="tests\TestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rain\events\EventArgs.hpp" />
+    <ClInclude Include="rain\events\EventHandler.hpp" />
     <ClInclude Include="rain\entities\EntityComponentEditor.hpp" />
     <ClInclude Include="rain\entities\EntityManager.hpp" />
     <ClInclude Include="rain\components\ComponentType.hpp" />

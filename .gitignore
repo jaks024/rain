@@ -1,2 +1,5 @@
 
 *.ipch
+/.vs/rain/v17/Browse.VC.db-shm
+/.vs/rain/v17/Browse.VC.db-wal
+/.vs/rain/v17/Browse.VC.opendb
