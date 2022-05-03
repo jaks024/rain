@@ -6,7 +6,6 @@
 #include <rain/events/EventArgs.hpp>
 #include <rain/events/EventHandler.hpp>
 
-
 class TestFuncClass
 {
 public:
@@ -38,8 +37,7 @@ public:
 };
 
 
-int main(int argc, char* args[])
-{
+void TestEvent() {
 	EventHandler<EventArgs> myEvent;
 	EventArgs arg = EventArgs();
 
@@ -70,7 +68,16 @@ int main(int argc, char* args[])
 
 	arg.message = "7\n";
 	myEvent.Invoke(arg);
+}
 
+void TestConfigDeSerializer(void) {
+
+
+}
+
+int main(int argc, char* args[])
+{
+	TestEvent();
 	return 0;
 
 
