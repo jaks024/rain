@@ -13,7 +13,7 @@ void ConfigDeSerializer::Serialize(string* const path, string* const content)
 	ofstream file(*path);
 	if (file.is_open())
 	{
-		file << content;
+		file << *content;
 		file.close();
 		return;
 	}
@@ -63,7 +63,7 @@ unordered_map<SDL_Keycode, SDL_Keycode> ConfigDeSerializer::DeserializeInputConf
 			delimiterIndex + INPUT_LINE_DELIMITER.length(), 
 			line.length() - 1);
 		SDL_Keycode keyKey = SDL_GetKeyFromName(key.c_str());
-		SDL_Keycode valueKey = SDL_GetKeyFromName(key.c_str());
+		SDL_Keycode valueKey = SDL_GetKeyFromName(value.c_str());
 		keybinds.insert({ keyKey, valueKey });
 	}
 	return keybinds;

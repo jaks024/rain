@@ -1,4 +1,5 @@
 #include <rain/input/InputKeybindManager.hpp>
+#include <rain/config/ConfigDeSerializer.hpp>
 
 void InputKeybindManager::Bind(const SDL_Keycode key, const SDL_Keycode to)
 {
@@ -10,10 +11,12 @@ void InputKeybindManager::Remove(const SDL_Keycode key)
 	keybindMap.erase(key);
 }
 
-void InputKeybindManager::Load(const string path)
+void InputKeybindManager::Load(string* const path)
 {
+	keybindMap = ConfigDeSerializer::DeserializeInputConfig(path);
 }
 
-void InputKeybindManager::Save(const string path)
+void InputKeybindManager::Save(string* const path)
 {
+	ConfigDeSerializer::SerializeInputConfig(&keybindMap, path);
 }

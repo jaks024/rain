@@ -5,6 +5,7 @@
 #include <tests/TestGame.hpp>
 #include <rain/events/EventArgs.hpp>
 #include <rain/events/EventHandler.hpp>
+#include <rain/config/ConfigDeSerializer.hpp>
 
 class TestFuncClass
 {
@@ -70,13 +71,40 @@ void TestEvent() {
 	myEvent.Invoke(arg);
 }
 
-void TestConfigDeSerializer(void) {
+void TestConfigDeSerializer(string folderPath) 
+{
+	string configPath = folderPath.append("config.cfg");
+	string content = "tebsd fsdaf sd\nfewfaew fewfjl";
+	//ConfigDeSerializer::Serialize(&configPath, &content);
+	//vector<string> s = ConfigDeSerializer::Deserialize(&configPath);
+	//for (auto& i : s)
+	//{
+	//	printf((i + "\n").c_str());
+	//}
 
-
+	unordered_map<SDL_Keycode, SDL_Keycode> keybinds;
+	keybinds.insert({ SDLK_a, SDLK_b });
+	keybinds.insert({ SDLK_c, SDLK_d });
+	keybinds.insert({ SDLK_e, SDLK_e });
+	keybinds.insert({ SDLK_AC_BACK, SDLK_AC_REFRESH });
+	keybinds.insert({ SDLK_COLON, SDLK_COMMA});
+	ConfigDeSerializer::SerializeInputConfig(&keybinds, &configPath);
+	
+	unordered_map<SDL_Keycode, SDL_Keycode> deserializedKeybinds;
+	deserializedKeybinds = ConfigDeSerializer::DeserializeInputConfig(&configPath);
+	for (auto& [key, val] : deserializedKeybinds)
+	{
+		std::cout << SDL_GetKeyName(key) << ": " << SDL_GetKeyName(val) << "\n";
+	}
 }
 
-int main(int argc, char* args[])
+int main(int argc, char* argv[])
 {
+	string exePath = string(argv[0]);
+	string folderPath = exePath.substr(0, exePath.find_last_of("\\") + 1);
+	printf((folderPath + "\n").c_str());
+	TestConfigDeSerializer(folderPath);
+
 	TestEvent();
 	return 0;
 
@@ -92,14 +120,3 @@ int main(int argc, char* args[])
 
 	return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
