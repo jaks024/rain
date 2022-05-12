@@ -167,6 +167,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="rain\input\InputEventManager.cpp" />
     <ClCompile Include="rain\config\ConfigDeSerializer.cpp" />
     <ClCompile Include="rain\input\InputKeybindManager.cpp" />
     <ClCompile Include="rain\entities\EntityComponentEditor.cpp" />
@@ -174,11 +175,14 @@
     <ClCompile Include="rain\entities\Entity.cpp" />
     <ClCompile Include="rain\Game.cpp" />
     <ClCompile Include="rain\rendering\Renderer.cpp" />
+    <ClCompile Include="rain\rendering\RenderLayer.cpp" />
+    <ClCompile Include="rain\rendering\RenderLayerManager.cpp" />
     <ClCompile Include="tests\rain.cpp" />
     <ClCompile Include="rain\utilities\Vector2.cpp" />
     <ClCompile Include="tests\TestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rain\input\InputEventManager.hpp" />
     <ClInclude Include="rain\config\ConfigDeSerializer.hpp" />
     <ClInclude Include="rain\input\InputKeybindManager.hpp" />
     <ClInclude Include="rain\events\EntityComponentEditorEventArgs.h" />
@@ -195,6 +199,9 @@
     <ClInclude Include="rain\rendering\Renderable.hpp" />
     <ClInclude Include="rain\rendering\UIRenderable.hpp" />
     <ClInclude Include="rain\utilities\Vector2.hpp" />
+    <ClInclude Include="rain\rendering\RenderableType.hpp" />
+    <ClInclude Include="rain\rendering\RenderLayer.hpp" />
+    <ClInclude Include="rain\rendering\RenderLayerManager.hpp" />
     <ClInclude Include="tests\TestGame.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

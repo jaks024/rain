@@ -10,6 +10,7 @@ struct Entity
 	Vector2 position;
 	Vector2 rotation;
 	Vector2 scale;
+	bool isEnabled;
 	std::unordered_set<Component, Component::Hash> components;
 
 	Entity(int id, Vector2 position, Vector2 rotation, Vector2 scale);

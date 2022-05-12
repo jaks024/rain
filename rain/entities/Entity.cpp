@@ -6,7 +6,7 @@ std::string Entity::ToString(void)
 }
 
 Entity::Entity(const int id, const Vector2 position, const Vector2 rotation, const Vector2 scale)
-	:id{ id }, position{ position }, rotation{ rotation }, scale{ scale }
+	:id{ id }, position{ position }, rotation{ rotation }, scale{ scale }, isEnabled{ true }
 {
 }
 
