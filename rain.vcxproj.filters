@@ -119,5 +119,8 @@
     <ClInclude Include="rain\input\InputEventManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="rain\events\InputEventArgs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -182,6 +182,7 @@
     <ClCompile Include="tests\TestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rain\events\InputEventArgs.hpp" />
     <ClInclude Include="rain\input\InputEventManager.hpp" />
     <ClInclude Include="rain\config\ConfigDeSerializer.hpp" />
     <ClInclude Include="rain\input\InputKeybindManager.hpp" />

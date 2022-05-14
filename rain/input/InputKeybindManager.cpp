@@ -11,6 +11,15 @@ void InputKeybindManager::Remove(const SDL_Keycode key)
 	keybindMap.erase(key);
 }
 
+void InputKeybindManager::Get(SDL_Keycode key, SDL_Keycode* binding)
+{
+	auto keyfindIterator = keybindMap.find(key);
+	if (keyfindIterator != keybindMap.end()) 
+	{
+		*binding = keyfindIterator->second;
+	}
+}
+
 void InputKeybindManager::Load(string* const path)
 {
 	keybindMap = ConfigDeSerializer::DeserializeInputConfig(path);

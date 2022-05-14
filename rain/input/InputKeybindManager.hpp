@@ -12,6 +12,7 @@ private:
 public:
 	void Bind(SDL_Keycode key, SDL_Keycode to);
 	void Remove(SDL_Keycode key);
+	void Get(SDL_Keycode key, SDL_Keycode* binding);
 	void Load(string* path);
 	void Save(string* path);
 };
