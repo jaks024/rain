@@ -8,6 +8,8 @@
 #include <rain/config/ConfigDeSerializer.hpp>
 #include <rain/rendering/RenderLayer.hpp>
 #include <rain/rendering/RenderLayerManager.hpp>
+#include <rain/input/InputKeybindManager.hpp>
+#include <rain/input/InputEventManager.hpp>
 
 class TestFuncClass
 {
@@ -73,9 +75,15 @@ void TestEvent() {
 	myEvent.Invoke(arg);
 }
 
-void TestConfigDeSerializer(string folderPath) 
+string GetConfigPath(char* argv[])
 {
-	string configPath = folderPath.append("config.cfg");
+	string exePath = string(argv[0]);
+	string configPath = exePath.substr(0, exePath.find_last_of("\\") + 1).append("config.cfg");
+	return configPath;
+}
+
+void TestConfigDeSerializer(string configPath) 
+{
 	string content = "tebsd fsdaf sd\nfewfaew fewfjl";
 	//ConfigDeSerializer::Serialize(&configPath, &content);
 	//vector<string> s = ConfigDeSerializer::Deserialize(&configPath);
@@ -167,24 +175,52 @@ void TestRenderLayer()
 
 }
 
+struct InputEventsTest {
+	bool end = false;
+	void End() {
+		end = true;
+		printf("end\n");
+		printf(end ? "t\n" : "f\n");
+	}
+	void PressedKey(string key) 
+	{
+		printf(("pressed: " + key + "\n").c_str());
+	}
+};
+
+void TestInputEventManager(string keybindPath) 
+{
+	auto keybindManager = std::make_shared<InputKeybindManager>();
+	keybindManager->Load(&keybindPath);
+	auto eventManager = InputEventManager(keybindManager);
+	InputEventsTest iet; 
+	eventManager.Subscribe(SDLK_a, std::bind(&InputEventsTest::PressedKey, iet, "A"));
+	eventManager.Subscribe(SDLK_b, std::bind(&InputEventsTest::PressedKey, iet, "B"));
+	eventManager.Subscribe(SDLK_c, std::bind(&InputEventsTest::PressedKey, iet, "C"));
+	eventManager.Subscribe(SDLK_d, std::bind(&InputEventsTest::PressedKey, iet, "D"));
+	eventManager.Subscribe(SDLK_e, std::bind(&InputEventsTest::End, iet));
+
+	eventManager.Poll();
+}
+
 int main(int argc, char* argv[])
 {
-	TestRenderLayer();
+	//TestInputEventManager(GetConfigPath(argv));
+	//return 0;
 
-	return 0;
+	//TestRenderLayer();
 
-	string exePath = string(argv[0]);
-	string folderPath = exePath.substr(0, exePath.find_last_of("\\") + 1);
-	printf((folderPath + "\n").c_str());
-	TestConfigDeSerializer(folderPath);
+	//return 0;
 
-	TestEvent();
-	return 0;
+	//TestConfigDeSerializer(GetConfigPath(argv));
 
+	//TestEvent();
+	//return 0;
 
 	TestGame* testGame = new TestGame("test game", 60, 1280, 720);
 	testGame->Start();
-	while (!testGame->hasQuit) {
+	while (!testGame->hasQuit) 
+	{
 		testGame->Play();
 	}
 	testGame->Close();

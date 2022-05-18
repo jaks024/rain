@@ -51,6 +51,7 @@ void InputEventManager::Poll(void)
 		{
 			keyEventHandler->Invoke(bindedKey);
 		}
+		break;
 
 		// put into SDLEventHandler
 		// add SDL_QUIT trigger
