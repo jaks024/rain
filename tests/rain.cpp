@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <format>
 #include <tests/TestGame.hpp>
 #include <rain/events/EventArgs.hpp>
 #include <rain/events/EventHandler.hpp>
@@ -10,6 +11,8 @@
 #include <rain/rendering/RenderLayerManager.hpp>
 #include <rain/input/InputKeybindManager.hpp>
 #include <rain/input/InputEventManager.hpp>
+#include <rain/assets/AssetManager.hpp>
+#include <SDL.h>
 
 class TestFuncClass
 {
@@ -75,10 +78,10 @@ void TestEvent() {
 	myEvent.Invoke(arg);
 }
 
-string GetConfigPath(char* argv[])
+string GetConfigPath(char* argv[], string fileName)
 {
 	string exePath = string(argv[0]);
-	string configPath = exePath.substr(0, exePath.find_last_of("\\") + 1).append("config.cfg");
+	string configPath = exePath.substr(0, exePath.find_last_of("\\") + 1).append(fileName);
 	return configPath;
 }
 
@@ -203,16 +206,38 @@ void TestInputEventManager(string keybindPath)
 	eventManager.Poll();
 }
 
+void TestAssetManager(string rootAssetPath)
+{
+	auto window = SDL_CreateWindow("test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 100, 100, SDL_WINDOW_SHOWN);
+	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+	printf(std::format("root path: {}\n", rootAssetPath).c_str());
+	auto assetManager = std::make_shared<AssetManager>(renderer, rootAssetPath);
+	int textureAssetId = assetManager->Create("test.png", "test asset", AssetType::TEXTURE);
+	printf(std::format("textureAssetId: {}\n", textureAssetId).c_str());
+	auto textureAsset = assetManager->Get<TextureAsset>(textureAssetId);
+	printf(std::format("Id: {}\n", textureAsset->id).c_str());
+	printf(std::format("name: {}\n", textureAsset->name).c_str());
+	printf(std::format("texture is null: {}\n", textureAsset->texture == nullptr ? "t" : "f").c_str());
+	printf(std::format("type: {}\n", (int)textureAsset->type).c_str());
+
+	assetManager->Destroy(textureAssetId);
+	textureAsset = assetManager->Get<TextureAsset>(textureAssetId);
+	printf(std::format("is null: {}\n", textureAsset == nullptr ? "t" : "f").c_str());
+}
+
 int main(int argc, char* argv[])
 {
-	//TestInputEventManager(GetConfigPath(argv));
+	/*TestAssetManager(GetConfigPath(argv, "Assets"));
+	return 0;*/
+
+	//TestInputEventManager(GetConfigPath(argv, "config.cfg"));
 	//return 0;
 
 	//TestRenderLayer();
 
 	//return 0;
 
-	//TestConfigDeSerializer(GetConfigPath(argv));
+	//TestConfigDeSerializer(GetConfigPath(argv, "config.cfg"));
 
 	//TestEvent();
 	//return 0;
