@@ -14,6 +14,9 @@ private:
 	vector<function<void(T)>> subscribedFunctions;
 
 public:
+	EventHandler(void) = default;
+	virtual ~EventHandler(void) = default;
+
 	void Invoke(T arg)
 	{
 		for (auto& func : subscribedFunctions)

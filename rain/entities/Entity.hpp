@@ -7,13 +7,13 @@
 struct Entity
 {
 	int id;
-	Vector2 position;
-	Vector2 rotation;
-	Vector2 scale;
+	Vector2<int> position;
+	Vector2<int> rotation;
+	Vector2<int> scale;
 	bool isEnabled;
 	std::unordered_set<Component, Component::Hash> components;
 
-	Entity(int id, Vector2 position, Vector2 rotation, Vector2 scale);
+	Entity(int id, Vector2<int> position, Vector2<int> rotation, Vector2<int> scale);
 	virtual ~Entity(void) = default;
 
 	void AddComponent(Component comp);

@@ -5,8 +5,12 @@ std::string Entity::ToString(void)
 	return std::to_string(id);
 }
 
-Entity::Entity(const int id, const Vector2 position, const Vector2 rotation, const Vector2 scale)
-	:id{ id }, position{ position }, rotation{ rotation }, scale{ scale }, isEnabled{ true }
+Entity::Entity(const int id, const Vector2<int> position, const Vector2<int> rotation, const Vector2<int> scale)
+	:id{ id }, 
+	position{ position }, 
+	rotation{ rotation }, 
+	scale{ scale }, 
+	isEnabled{ true }
 {
 }
 

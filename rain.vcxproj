@@ -167,6 +167,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="rain\pixel\ActiveAreasManager.cpp" />
+    <ClCompile Include="rain\pixel\ActiveAreasCreator.cpp" />
+    <ClCompile Include="rain\pixel\objects\Group.cpp" />
+    <ClCompile Include="rain\pixel\ChunkObserver.cpp" />
+    <ClCompile Include="rain\pixel\objects\Chunk.cpp" />
     <ClCompile Include="rain\assets\AssetManager.cpp" />
     <ClCompile Include="rain\assets\AssetDeSerializer.cpp" />
     <ClCompile Include="rain\input\InputEventManager.cpp" />
@@ -180,10 +185,21 @@
     <ClCompile Include="rain\rendering\RenderLayer.cpp" />
     <ClCompile Include="rain\rendering\RenderLayerManager.cpp" />
     <ClCompile Include="tests\rain.cpp" />
-    <ClCompile Include="rain\utilities\Vector2.cpp" />
     <ClCompile Include="tests\TestGame.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rain\pixel\ActiveAreasManager.hpp" />
+    <ClInclude Include="rain\events\ActiveAreasFoundEventArgs.hpp" />
+    <ClInclude Include="rain\utilities\Area.hpp" />
+    <ClInclude Include="rain\pixel\ActiveAreasCreator.hpp" />
+    <ClInclude Include="rain\pixel\objects\ActiveAreas.hpp" />
+    <ClInclude Include="rain\pixel\objects\Group.hpp" />
+    <ClInclude Include="rain\pixel\ChunkObserver.hpp" />
+    <ClInclude Include="rain\events\ChunkDataChangedEventArgs.hpp" />
+    <ClInclude Include="rain\pixel\objects\Chunk.hpp" />
+    <ClInclude Include="rain\pixel\objects\PixelClassification.hpp" />
+    <ClInclude Include="rain\pixel\objects\Pixel.hpp" />
+    <ClInclude Include="rain\pixel\objects\PixelType.hpp" />
     <ClInclude Include="rain\assets\AssetManager.hpp" />
     <ClInclude Include="rain\assets\AssetDeSerializer.hpp" />
     <ClInclude Include="rain\assets\AssetType.hpp" />
@@ -192,7 +208,7 @@
     <ClInclude Include="rain\input\InputEventManager.hpp" />
     <ClInclude Include="rain\config\ConfigDeSerializer.hpp" />
     <ClInclude Include="rain\input\InputKeybindManager.hpp" />
-    <ClInclude Include="rain\events\EntityComponentEditorEventArgs.h" />
+    <ClInclude Include="rain\events\EntityComponentEditorEventArgs.hpp" />
     <ClInclude Include="rain\events\EventArgs.hpp" />
     <ClInclude Include="rain\events\EventHandler.hpp" />
     <ClInclude Include="rain\entities\EntityComponentEditor.hpp" />

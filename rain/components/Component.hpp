@@ -7,7 +7,7 @@ struct Component
 	int componentSourceId;
 	ComponentType type;
 
-	Component(void) = default;
+	Component(void) :componentSourceId{ 0 }, type{ ComponentType::EMPTY } {};
 	Component(ComponentType type) : componentSourceId{ 0 },  type { type } {}
 	virtual ~Component(void) = default;
 

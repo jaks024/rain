@@ -13,7 +13,7 @@ private:
 	unordered_map<int, shared_ptr<Entity>> entityMap;
 
 public:
-	int Create(Vector2 position, Vector2 rotation, Vector2 scale);
+	int Create(Vector2<int> position, Vector2<int> rotation, Vector2<int> scale);
 	shared_ptr<Entity> Remove(int id);
 	shared_ptr<Entity> Get(int id);
 	bool Update(int id, shared_ptr<Entity> updatedEntity);

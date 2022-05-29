@@ -1,6 +1,6 @@
 #include <rain/entities/EntityManager.hpp>
 
-int EntityManager::Create(const Vector2 position, const Vector2 rotation, const Vector2 scale)
+int EntityManager::Create(const Vector2<int> position, const Vector2<int> rotation, const Vector2<int> scale)
 {
 	++idCount;
 	shared_ptr<Entity> entity = std::make_shared<Entity>(idCount, position, rotation, scale);

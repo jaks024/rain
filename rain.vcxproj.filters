@@ -24,9 +24,6 @@
     <ClCompile Include="rain\rendering\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="rain\utilities\Vector2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="tests\TestGame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -58,6 +55,21 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="rain\assets\AssetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rain\pixel\objects\Chunk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rain\pixel\ChunkObserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rain\pixel\objects\Group.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rain\pixel\ActiveAreasCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rain\pixel\ActiveAreasManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,7 +116,7 @@
     <ClInclude Include="rain\events\EventArgs.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rain\events\EntityComponentEditorEventArgs.h">
+    <ClInclude Include="rain\events\EntityComponentEditorEventArgs.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rain\input\InputKeybindManager.hpp">
@@ -141,6 +153,42 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rain\assets\AssetManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\objects\PixelType.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\objects\Pixel.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\objects\PixelClassification.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\objects\Chunk.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\events\ChunkDataChangedEventArgs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\ChunkObserver.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\objects\Group.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\objects\ActiveAreas.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\ActiveAreasCreator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\utilities\Area.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\events\ActiveAreasFoundEventArgs.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\pixel\ActiveAreasManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

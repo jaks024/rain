@@ -6,9 +6,9 @@ struct Renderable
 	int id;
 	int assetId;
 	int index;
-	Vector2 position;
-	Vector2 rotation;
-	Vector2 scale;
+	Vector2<int> position;
+	Vector2<int> rotation;
+	Vector2<int> scale;
 	RenderableType type;
 
 	struct CompareIndex {

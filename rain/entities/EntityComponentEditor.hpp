@@ -1,7 +1,7 @@
 #pragma once
 #include <rain/events/EventHandler.hpp>
 #include <rain/entities/Entity.hpp>
-#include <rain/events/EntityComponentEditorEventArgs.h>
+#include <rain/events/EntityComponentEditorEventArgs.hpp>
 #include <memory>
 using std::shared_ptr;
 class EntityComponentEditor

@@ -1,2 +1,6 @@
-﻿  rain.cpp
+﻿  Chunk.cpp
+C:\Github\rain\rain\pixel\objects\Chunk.cpp(39,42): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Github\rain\rain\pixel\objects\Chunk.cpp(40,43): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  EntityComponentEditor.cpp
+  Generating Code...
   rain.vcxproj -> C:\Github\rain\x64\Debug\rain.exe
