@@ -1,12 +1,13 @@
 #include <iostream>
 #include <rain/Game.hpp>
 
-Game::Game(string gameName, int framerate, int screenWidth, int screenHeight)
+Game::Game(string gameName, int framerate, int screenWidth, int screenHeight, string assetRootPath)
 {
 	this->gameName = gameName;
 	this->framerate = framerate;
 	this->screenWidth = screenWidth;
 	this->screenHeight = screenHeight;
+	this->assetRootPath = assetRootPath;
 }
 
 Game::~Game(void)
@@ -32,6 +33,10 @@ bool Game::EngineInitialize(void)
 	}
 
 	renderer = std::make_unique<Renderer>(window, screenWidth, screenHeight);
+	assetManager = std::make_shared<AssetManager>(renderer->GetRenderer(), assetRootPath);
+	entityManager = std::make_shared<EntityManager>();
+	renderLayerManager = std::make_shared<RenderLayerManager>();
+	renderableManager = std::make_shared<RenderableManager>();
 }
 
 void Game::EngineUpdate(void)
@@ -55,7 +60,7 @@ void Game::EngineUpdate(void)
 
 void Game::EngineRender(void)
 {
-	renderer->Render();
+	renderer->Render(renderLayerManager, assetManager);
 }
 
 void Game::EngineQuit(void)

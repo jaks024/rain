@@ -8,7 +8,7 @@ shared_ptr<RenderLayer> RenderLayerManager::Create(int index, string layerName, 
 	return newLayer;
 }
 
-void RenderLayerManager::AddObjToLayer(int index, Renderable renderObject)
+void RenderLayerManager::AddObjToLayer(int index, shared_ptr<Renderable> renderObject)
 {
 	auto layer = Get(index);
 	if (layer != NULL) 
@@ -43,4 +43,9 @@ shared_ptr<RenderLayer> RenderLayerManager::Get(int index)
 		return layer->second;
 	}
 	return NULL;
+}
+
+map<int, shared_ptr<RenderLayer>>* RenderLayerManager::GetAll(void)
+{
+	return &layers;
 }

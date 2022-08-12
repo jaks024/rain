@@ -3,6 +3,9 @@
 #include <rain/rendering/Renderer.hpp>
 #include <string>
 #include <memory>
+#include <rain/entities/EntityManager.hpp>
+#include <rain/components/RenderableManager.hpp>
+
 using std::string;
 using std::unique_ptr;
 
@@ -10,6 +13,7 @@ class Game
 {
 
 private:
+	string assetRootPath = "";
 	string gameName = "Game";
 	int framerate = 60;
 	int screenWidth = 1280;
@@ -26,6 +30,11 @@ private:
 	void OnQuit(void);
 
 protected:
+	shared_ptr<AssetManager> assetManager;
+	shared_ptr<EntityManager> entityManager;
+	shared_ptr<RenderLayerManager> renderLayerManager;
+	shared_ptr<RenderableManager> renderableManager;
+
 	virtual void Initialize(void) = 0;
 	virtual void Update(void) = 0;
 	virtual void Render(void) = 0;
@@ -34,7 +43,7 @@ protected:
 public:
 	bool hasQuit = false;
 
-	Game(string gameName, int framerate, int screenWidth, int screenHeight);
+	Game(string gameName, int framerate, int screenWidth, int screenHeight, string assetRootPath);
 	virtual ~Game(void);
 
 	void ToggleEditorOverlay(bool state);

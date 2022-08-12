@@ -1,6 +1,5 @@
 #include <rain/rendering/Renderer.hpp>
 
-
 Renderer::Renderer(SDL_Window* window, const int screenWidth, const int screenHeight)
 {
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
@@ -18,40 +17,41 @@ Renderer::~Renderer(void)
 	SDL_DestroyRenderer(renderer);
 }
 
-void Renderer::AddToUIQueue(const UIRenderable obj)
+void Renderer::ProcessRenderQueue(shared_ptr<RenderLayerManager> renderLayerManager, shared_ptr<AssetManager> assetManager)
 {
+	auto layers = renderLayerManager->GetAll();
+	for (auto const& [index, layer] : *layers)
+	{
+		for (auto& [id, obj] : layer->objInLayer)
+		{
+			SDL_Rect dest;
+			dest.w = 1 * obj->scale.x;
+			dest.h = 1 * obj->scale.y;
+			dest.x = obj->position.x;
+			dest.y = obj->position.y;
+
+			auto textureAsset = assetManager->Get<TextureAsset>(obj->assetId);
+			if (textureAsset != nullptr)
+			{
+				SDL_RenderCopy(renderer, textureAsset->texture, NULL, &dest);
+			}
+		}
+	}
 }
 
-void Renderer::AddToGraphicsQueue(const GraphicsRenderable graphics)
-{
-}
 
-UIRenderable Renderer::RemoveFromUIQueue(const int id)
-{
-	return UIRenderable();
-}
-
-GraphicsRenderable Renderer::RemoveFromGraphicsQueue(const int id)
-{
-	return GraphicsRenderable();
-}
-
-void Renderer::RenderUI(void)
-{
-}
-
-void Renderer::RenderGraphics(void)
-{
-}
-
-void Renderer::Render(void)
+void Renderer::Render(shared_ptr<RenderLayerManager> renderLayerManager, shared_ptr<AssetManager> assetManager)
 {
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
 	SDL_RenderClear(renderer);
 
-	RenderGraphics();
-	RenderUI();
+	ProcessRenderQueue(renderLayerManager, assetManager);
 
 	SDL_RenderPresent(renderer);
+}
+
+SDL_Renderer* Renderer::GetRenderer(void)
+{
+	return renderer;
 }

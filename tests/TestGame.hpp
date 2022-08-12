@@ -11,6 +11,6 @@ class TestGame :
     virtual void Quit(void) override;
 
 public:
-    TestGame(string gameName, int framerate, int screenWidth, int screenHeight);
+    TestGame(string gameName, int framerate, int screenWidth, int screenHeight, string assetRootPath);
 };
 

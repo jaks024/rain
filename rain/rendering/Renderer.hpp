@@ -1,28 +1,21 @@
 #pragma once
 #include <SDL.h>
-#include <queue>
-#include <rain/rendering/UIRenderable.hpp>
-#include <rain/rendering/GraphicsRenderable.hpp>
-using std::priority_queue;
+#include <memory>
+#include <rain/rendering/RenderLayerManager.hpp>
+#include <rain/assets/AssetManager.hpp>
 
 class Renderer
 {
 private:
 	SDL_Renderer* renderer;
-	priority_queue<UIRenderable> uiRenderQueue;
-	priority_queue<GraphicsRenderable> graphicsRenderQueue;
-
-	void RenderUI(void);
-	void RenderGraphics(void);
+	
+	void ProcessRenderQueue(shared_ptr<RenderLayerManager> renderLayerManager, shared_ptr<AssetManager> assetManager);
 
 public:
 	Renderer(SDL_Window* window, int screenWidth, int screenHeight);
 	~Renderer(void);
 
-	void AddToUIQueue(UIRenderable obj);
-	void AddToGraphicsQueue(GraphicsRenderable graphics);
-	UIRenderable RemoveFromUIQueue(int id);
-	GraphicsRenderable RemoveFromGraphicsQueue(int id);
-	void Render(void);
+	void Render(shared_ptr<RenderLayerManager> renderLayerManager, shared_ptr<AssetManager> assetManager);
+	SDL_Renderer* GetRenderer(void);
 };
 

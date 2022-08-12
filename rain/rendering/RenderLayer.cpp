@@ -5,20 +5,17 @@ RenderLayer::RenderLayer(string name, int index, bool isEnabled)
 {
 }
 
-void RenderLayer::Add(Renderable obj)
+void RenderLayer::Add(shared_ptr<Renderable> obj)
 {
-	objInLayer.insert(obj);
+	objInLayer.insert({ obj->id, obj });
 }
 
 void RenderLayer::Remove(int id)
 {
-	auto it = objInLayer.begin();
-	for (it = objInLayer.begin(); it != objInLayer.end(); ++it)
+	auto result = objInLayer.find(id);
+	if (result != objInLayer.end())
 	{
-		if ((*it).id == id) 
-		{
-			objInLayer.erase(it);
-			return;
-		}
+		objInLayer.erase(result);
+		return;
 	}
 }

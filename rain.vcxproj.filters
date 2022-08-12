@@ -72,6 +72,9 @@
     <ClCompile Include="rain\pixel\ActiveAreasManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rain\components\RenderableManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rain\Game.hpp">
@@ -80,13 +83,7 @@
     <ClInclude Include="rain\rendering\Renderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rain\rendering\Renderable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rain\rendering\UIRenderable.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rain\rendering\GraphicsRenderable.hpp">
+    <ClInclude Include="rain\components\Renderable.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rain\utilities\Vector2.hpp">
@@ -123,9 +120,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rain\config\ConfigDeSerializer.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="rain\rendering\RenderableType.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rain\rendering\RenderLayer.hpp">
@@ -189,6 +183,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rain\pixel\ActiveAreasManager.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rain\components\RenderableManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

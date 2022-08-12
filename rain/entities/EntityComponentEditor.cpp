@@ -5,7 +5,7 @@ void EntityComponentEditor::Invoke(ComponentType type, int* componentSourceId, b
 	EntityComponentEditorEventArgs arg = EntityComponentEditorEventArgs(componentSourceId, isCreate);
 	switch (type)
 	{
-	case ComponentType::Texture:
+	case ComponentType::Renderable:
 		RaiseNewTextureEvent.Invoke(arg);
 		break;
 	case ComponentType::Collider:

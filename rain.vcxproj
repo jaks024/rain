@@ -86,8 +86,8 @@
     </PublicIncludeDirectories>
     <SourcePath>$(VC_SourcePath);</SourcePath>
     <AllProjectIncludesArePublic>false</AllProjectIncludesArePublic>
-    <IncludePath>C:\vslib\SDL2_image-2.0.5\include;C:\vslib\SDL2_ttf-2.0.18\include;C:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\vslib\SDL2-2.0.20\lib\x64;C:\vslib\SDL2_ttf-2.0.18\lib\x64;C:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>F:\vslib\SDL2_image-2.0.5\include;F:\vslib\SDL2_ttf-2.0.18\include;F:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
+    <LibraryPath>F:\vslib\SDL2-2.0.20\lib\x64;F:\vslib\SDL2_ttf-2.0.18\lib\x64;F:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\GitHub\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>F:\GitHub\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -184,6 +184,7 @@
     <ClCompile Include="rain\rendering\Renderer.cpp" />
     <ClCompile Include="rain\rendering\RenderLayer.cpp" />
     <ClCompile Include="rain\rendering\RenderLayerManager.cpp" />
+    <ClCompile Include="rain\components\RenderableManager.cpp" />
     <ClCompile Include="tests\rain.cpp" />
     <ClCompile Include="tests\TestGame.cpp" />
   </ItemGroup>
@@ -216,15 +217,13 @@
     <ClInclude Include="rain\components\ComponentType.hpp" />
     <ClInclude Include="rain\components\Component.hpp" />
     <ClInclude Include="rain\entities\Entity.hpp" />
-    <ClInclude Include="rain\rendering\GraphicsRenderable.hpp" />
     <ClInclude Include="rain\Game.hpp" />
     <ClInclude Include="rain\rendering\Renderer.hpp" />
-    <ClInclude Include="rain\rendering\Renderable.hpp" />
-    <ClInclude Include="rain\rendering\UIRenderable.hpp" />
+    <ClInclude Include="rain\components\Renderable.hpp" />
     <ClInclude Include="rain\utilities\Vector2.hpp" />
-    <ClInclude Include="rain\rendering\RenderableType.hpp" />
     <ClInclude Include="rain\rendering\RenderLayer.hpp" />
     <ClInclude Include="rain\rendering\RenderLayerManager.hpp" />
+    <ClInclude Include="rain\components\RenderableManager.hpp" />
     <ClInclude Include="tests\TestGame.hpp" />
     <ClInclude Include="rain\assets\TextureAsset.hpp" />
   </ItemGroup>
