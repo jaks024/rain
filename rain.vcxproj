@@ -86,8 +86,8 @@
     </PublicIncludeDirectories>
     <SourcePath>$(VC_SourcePath);</SourcePath>
     <AllProjectIncludesArePublic>false</AllProjectIncludesArePublic>
-    <IncludePath>F:\vslib\SDL2_image-2.0.5\include;F:\vslib\SDL2_ttf-2.0.18\include;F:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\vslib\SDL2-2.0.20\lib\x64;F:\vslib\SDL2_ttf-2.0.18\lib\x64;F:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\vslib\SDL2_image-2.0.5\include;C:\vslib\SDL2_ttf-2.0.18\include;C:\vslib\SDL2-2.0.20\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\vslib\SDL2-2.0.20\lib\x64;C:\vslib\SDL2_ttf-2.0.18\lib\x64;C:\vslib\SDL2_image-2.0.5\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -136,7 +136,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>F:\GitHub\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\GitHub\rain;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
@@ -181,6 +181,7 @@
     <ClCompile Include="rain\entities\EntityManager.cpp" />
     <ClCompile Include="rain\entities\Entity.cpp" />
     <ClCompile Include="rain\Game.cpp" />
+    <ClCompile Include="rain\pixel\objects\Pixel.cpp" />
     <ClCompile Include="rain\rendering\Renderer.cpp" />
     <ClCompile Include="rain\rendering\RenderLayer.cpp" />
     <ClCompile Include="rain\rendering\RenderLayerManager.cpp" />

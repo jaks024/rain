@@ -33,6 +33,9 @@ void Renderer::ProcessRenderQueue(shared_ptr<RenderLayerManager> renderLayerMana
 			auto textureAsset = assetManager->Get<TextureAsset>(obj->assetId);
 			if (textureAsset != nullptr)
 			{
+				SDL_SetTextureBlendMode(textureAsset->texture, SDL_BlendMode::SDL_BLENDMODE_ADD);
+				SDL_SetTextureColorMod(textureAsset->texture, obj->color.r, obj->color.g, obj->color.b);
+				SDL_SetTextureAlphaMod(textureAsset->texture, obj->color.a);
 				SDL_RenderCopy(renderer, textureAsset->texture, NULL, &dest);
 			}
 		}

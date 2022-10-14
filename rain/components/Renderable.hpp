@@ -2,6 +2,7 @@
 #include <rain/utilities/Vector2.hpp>
 #include <rain/components/Component.hpp>
 #include <memory>
+#include <SDL.h>
 struct Renderable
 {
 	int id;
@@ -10,6 +11,7 @@ struct Renderable
 	Vector2<int> position = Vector2<int>::Zero();
 	Vector2<int> rotation = Vector2<int>::Zero();
 	Vector2<int> scale = Vector2<int>::One();
+	SDL_Color color;
 	bool destroyed = false;
 
 	Renderable(int id)
